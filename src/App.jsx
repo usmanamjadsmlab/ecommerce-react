@@ -1,43 +1,86 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import Banner from "./components/Banner/Banner";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import Products from "./components/Products/Products";
-import TopProducts from "./components/TopProducts/TopProducts";
-import Subscribe from "./components/Subscribe/Subscribe";
+import Brands from "./components/Brands/Brands";
+import Arrivals from "./components/Arrivals/Arrivals";
+import Selling from "./components/Selling/Selling";
+import DressStyle from "./components/DressStyle/DressStyle";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Footer from "./components/Footer/Footer";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
+import CartPage from "./components/CartPage/CartPage";
+import Men from "./components/DressStyle/Men";
+import Women from "./components/DressStyle/Women";
+import Kids from "./components/DressStyle/Kids";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import { Toaster } from "react-hot-toast";
+import CustomerInfo from "./components/CustomerInfo/CustomerInfo";
+import ShippingPayment from "./components/ShippingPayment/ShippingPayment";
+import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 function App() {
-  const [orderPopup, setOrderPopup] = useState(false);
-  const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
-  };
-
   useEffect(() => {
     AOS.init({
-      offset: 100,
       duration: 800,
-      easing: "ease-in-out",
-      delay: 100,
+      once: true,
     });
-    AOS.refresh();
   }, []);
   return (
-    <>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar handleOrderPopup={handleOrderPopup} />
-        <Hero handleOrderPopup={handleOrderPopup} />
-        <Products />
-        <TopProducts handleOrderPopup={handleOrderPopup} />
-        <Banner />
-        <Subscribe />
-        <Testimonials />
-        <Footer />
-      </div>
-    </>
+    <Router>
+      <CartProvider>
+        <ScrollToTop />
+        <div className="bg-white dark:text-white">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Brands />
+                  <Arrivals />
+                  <Selling />
+                  <DressStyle />
+                  <Testimonials />
+                </>
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/customer-info" element={<CustomerInfo />} />
+            <Route path="/shipping" element={<ShippingPayment />} />{" "}
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/kids" element={<Kids />} />
+          </Routes>
+          <Footer />
+        </div>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#333",
+              color: "#fff",
+            },
+          }}
+        />
+      </CartProvider>
+    </Router>
   );
 }
 

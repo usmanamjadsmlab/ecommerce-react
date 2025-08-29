@@ -1,120 +1,105 @@
 import React from "react";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FaStar, FaCheckCircle } from "react-icons/fa";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { motion } from "framer-motion";
 
-const TestimonialData = [
+const testimonials = [
   {
-    id: 1,
-    name: "Babar Azam",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS34qgT1gOgEIW_QrK-EoGbNDzx92PRgCkmNA&s", // ✅ Victor ke liye random user API (stable)
+    name: "Sarah M.",
+    review:
+      "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
   },
   {
-    id: 2,
-    name: "Abdullah Shafique",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKWhcRBdngssvP_AY10D22WLxzGYMFDDYhGg&s", // ✅ Satya ke liye generic avatar
+    name: "Alex K.",
+    review:
+      "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
   },
   {
-    id: 4,
-    name: "Shaheen Afridi",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://static-files.cricket-australia.pulselive.com/headshots/288/637-camedia.png", // ✅ Stable Sachin photo
+    name: "James L.",
+    review:
+      "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
   },
   {
-    id: 3,
-    name: "Fakhar Zaman",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4EKv3OJ4fSyhGcQyaFquk5AE_VoZvUBZrYg&s", // ✅ Stable Virat photo
+    name: "Emma W.",
+    review:
+      "The quality is amazing! I got compliments on my outfit the first time I wore it. Definitely shopping here again. I'm thrilled to have stumbled upon Shop.co.",
   },
 ];
 
-const Testimonials = () => {
-  var settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    pauseOnHover: true,
-    pauseOnFocus: true,
-    responsive: [
-      {
-        breakpoint: 10000,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
+const Testimonials = () => {
   return (
-    <div className="py-10 mb-10">
-      <div className="container">
-        <div className="text-center  mb-10 max-w-[600px] mx-auto">
-          <p data-aos="fade-up" className="text-sm text-primary">
-            What our customers are saying
-          </p>
-          <h1 data-aos="fade-up" className="text-3xl font-bold">
-            Testimonials
-          </h1>
-          <p data-aos="fade-up" className="text-xs text-gray-400">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit
-            asperiores modi Sit asperiores modi
-          </p>
-        </div>
-        <div data-aos="zoom-in">
-          <Slider {...settings}>
-            {TestimonialData.map((data) => (
-              <div className="my-6">
-                <div
-                  key={data.id}
-                  className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-slate-600  bg-primary/10 relative"
-                >
-                  <div className="mb-4">
-                    <img
-                      src={data.img}
-                      alt=""
-                      className="rounded-full w-20 h-20"
-                    />
-                  </div>
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <p className="text-xs dark:text-slate-300 text-gray-500">
-                        {data.text}
-                      </p>
-                      <h1 className="text-xl font-bold dark:text-slate-300 text-black/80">
-                        {data.name}
-                      </h1>
-                    </div>
-                  </div>
-                  <p className="text-black/20  text-9xl font-serif absolute top-0 right-0"></p>
+    <section className="bg-white py-32 px-4">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex justify-between items-center mb-8"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold">
+            OUR HAPPY CUSTOMERS
+          </h2>
+          <div className="flex space-x-3">
+            <button className="testimonial-prev cursor-pointer bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300 transition">
+              <HiChevronLeft className="text-2xl" />
+            </button>
+            <button className="testimonial-next cursor-pointer bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300 transition">
+              <HiChevronRight className="text-2xl" />
+            </button>
+          </div>
+        </motion.div>
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            nextEl: ".testimonial-next",
+            prevEl: ".testimonial-prev",
+          }}
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {testimonials.map((t, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="bg-white rounded-2xl shadow-md border p-6 h-full"
+              >
+                <div className="flex text-yellow-400 mb-3">
+                  {Array(5)
+                    .fill()
+                    .map((_, i) => (
+                      <FaStar key={i} />
+                    ))}
                 </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="font-bold text-lg">{t.name}</span>
+                  <FaCheckCircle className="text-green-500" />
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t.review}
+                </p>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 
