@@ -58,13 +58,16 @@ const CustomerInfo = () => {
   const total = subtotal - discount + deliveryFee;
 
   return (
-    <div className="max-w-7xl mb-28 mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
+    <div className="max-w-7xl mb-28 mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10 text-[#000000]">
+      {/* Left Form Section */}
       <div className="lg:col-span-2 space-y-8">
         <div data-aos="fade-up">
           <h2 className="text-3xl font-bold">Customer Information</h2>
-          <p className="text-gray-600">Let’s create your account</p>
+          <p className="text-[#1A1A1A]">Let’s create your account</p>
         </div>
-        <div data-aos="fade-up" data-aos-delay="100" className="space-y-5">
+
+        {/* Email */}
+        <div data-aos="fade-up" data-aos-delay="100" className="space-y-2">
           <label className="block font-semibold">E-mail</label>
           <input
             type="email"
@@ -72,12 +75,14 @@ const CustomerInfo = () => {
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2"
+            className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
           />
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email}</p>
           )}
         </div>
+
+        {/* First & Last Name */}
         <div
           data-aos="fade-up"
           data-aos-delay="200"
@@ -91,7 +96,7 @@ const CustomerInfo = () => {
               placeholder="First Name"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             />
             {errors.firstName && (
               <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -105,22 +110,25 @@ const CustomerInfo = () => {
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             />
             {errors.lastName && (
               <p className="text-red-500 text-sm">{errors.lastName}</p>
             )}
           </div>
         </div>
+
+        {/* Shipping Address */}
         <div data-aos="fade-up" data-aos-delay="300" className="space-y-5">
           <h3 className="text-lg font-semibold">Shipping Address</h3>
+
           <div>
             <label className="block font-semibold">Country</label>
             <select
               name="country"
               value={formData.country}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             >
               <option value="">Select Country</option>
               <option>Australia</option>
@@ -132,6 +140,7 @@ const CustomerInfo = () => {
               <p className="text-red-500 text-sm">{errors.country}</p>
             )}
           </div>
+
           <div>
             <label className="block font-semibold">State/Region</label>
             <input
@@ -140,12 +149,13 @@ const CustomerInfo = () => {
               placeholder="Enter state/region"
               value={formData.state}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             />
             {errors.state && (
               <p className="text-red-500 text-sm">{errors.state}</p>
             )}
           </div>
+
           <div>
             <label className="block font-semibold">Address</label>
             <input
@@ -154,12 +164,13 @@ const CustomerInfo = () => {
               placeholder="Enter your address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             />
             {errors.address && (
               <p className="text-red-500 text-sm">{errors.address}</p>
             )}
           </div>
+
           <div>
             <label className="block font-semibold">Phone Number</label>
             <input
@@ -168,7 +179,7 @@ const CustomerInfo = () => {
               placeholder="Enter phone number"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2"
+              className="w-full border border-[#E0E0E0] rounded-lg px-4 py-2 bg-[#FFFFFF]"
             />
             {errors.phone && (
               <p className="text-red-500 text-sm">{errors.phone}</p>
@@ -176,13 +187,17 @@ const CustomerInfo = () => {
           </div>
         </div>
       </div>
+
+      {/* Right Order Summary */}
       <div
         data-aos="zoom-in"
         data-aos-delay="400"
-        className="border rounded-xl p-6 h-fit shadow-md"
+        className="border border-[#E0E0E0] rounded-xl p-6 h-fit shadow-md bg-[#FFFFFF]"
       >
-        <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-        <div className="space-y-3 text-gray-700">
+        <h3 className="text-xl font-semibold mb-4 text-[#000000]">
+          Order Summary
+        </h3>
+        <div className="space-y-3 text-[#1A1A1A]">
           <div className="flex justify-between">
             <span>Price</span>
             <span>${subtotal.toFixed(2)}</span>
@@ -195,12 +210,12 @@ const CustomerInfo = () => {
             <span>Tax</span>
             <span>$0</span>
           </div>
-          <div className="flex justify-between text-red-500">
+          <div className="flex justify-between text-[#D4AF37]">
             <span>Discount</span>
             <span>- ${discount.toFixed(2)}</span>
           </div>
-          <hr className="my-3" />
-          <div className="flex justify-between text-lg font-bold">
+          <hr className="my-3 border-[#E0E0E0]" />
+          <div className="flex justify-between text-lg font-bold text-[#000000]">
             <span>Total Price</span>
             <span>${total.toFixed(2)}</span>
           </div>
@@ -208,7 +223,7 @@ const CustomerInfo = () => {
 
         <button
           onClick={handleNext}
-          className="mt-6 w-full bg-black text-white py-3 rounded-lg flex items-center justify-center gap-2"
+          className="mt-6 w-full bg-gradient-to-r from-[#D4AF37] to-[#b38b2b] text-black border border-transparent hover:bg-black hover:text-white hover:border-[#D4AF37] py-3 rounded-lg flex items-center justify-center gap-2 font-semibold shadow-md hover:scale-105 transition-transform duration-300"
         >
           NEXT
         </button>

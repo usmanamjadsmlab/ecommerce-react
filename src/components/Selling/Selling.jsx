@@ -41,7 +41,7 @@ const Selling = () => {
   if (loading) {
     return (
       <div className="py-10 text-center">
-        <p className="animate-pulse text-gray-500">Loading products...</p>
+        <p className="animate-pulse text-[#1A1A1A]">Loading products...</p>
       </div>
     );
   }
@@ -49,27 +49,34 @@ const Selling = () => {
   const visibleProducts = showAll ? products : products.slice(0, 4);
 
   return (
-    <div id="selling" className="py-10">
-      <h2 data-aos="fade-up" className="text-4xl font-bold mb-12 text-center">
+    <div id="selling" className="py-10 px-6 md:px-32 bg-[#FFFFFF]">
+      <h2
+        data-aos="fade-up"
+        className="text-4xl font-bold mb-12 text-center text-[#000000]"
+      >
         NEW SELLING
       </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {visibleProducts.map((product, i) => (
           <div
             key={product.id}
             data-aos="zoom-in"
             data-aos-delay={i * 150}
-            className="relative rounded-2xl bg-gray-50 p-6 shadow-sm hover:shadow-lg transition"
+            className="relative rounded-2xl border border-[#000000] bg-[#FFFFFF] p-6 shadow-sm hover:shadow-lg transition"
           >
+            {/* Add to Cart Button */}
             <button
               onClick={() => {
                 addToCart(product);
                 toast.success("Item added successfully!");
               }}
-              className="absolute top-4 right-4 bg-gray-200 hover:bg-black hover:text-white p-2 rounded-full transition"
+              className="absolute top-2 right-2 bg-[#E0E0E0] p-2 rounded-full shadow hover:bg-[#D4AF37] hover:text-[#000000] transition"
             >
               <Plus className="w-5 h-5" />
             </button>
+
+            {/* Product Image */}
             <img
               src={product.img}
               alt={product.title}
@@ -77,13 +84,17 @@ const Selling = () => {
               className="w-full h-56 object-contain mb-4 cursor-pointer"
             />
 
-            <h3 className="font-semibold text-lg mb-2 line-clamp-1">
+            {/* Title */}
+            <h3 className="font-semibold text-lg mb-2 line-clamp-1 text-[#000000]">
               {product.title}
             </h3>
-            <p className="text-lg font-bold">{product.price}</p>
+
+            {/* Price */}
+            <p className="text-lg font-bold text-[#D4AF37]">{product.price}</p>
           </div>
         ))}
       </div>
+
       {products.length > 4 && !showAll && (
         <div
           data-aos="fade-up"
@@ -92,7 +103,7 @@ const Selling = () => {
         >
           <button
             onClick={() => setShowAll(true)}
-            className="px-10 py-3 border border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition"
+            className="px-10 py-3 bg-gradient-to-r from-[#D4AF37] to-[#b38b2b] text-black border border-transparent hover:bg-black hover:text-white hover:border-[#D4AF37] rounded-full font-semibold shadow-md hover:scale-105 transition-transform duration-300"
           >
             View All
           </button>

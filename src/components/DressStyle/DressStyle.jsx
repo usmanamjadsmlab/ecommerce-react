@@ -8,7 +8,7 @@ import partyImg from "../../assets/dressStyle/party.png";
 const DressStyle = () => {
   return (
     <section id="dressstyle" className="bg-white py-10 px-4">
-      <div className="max-w-6xl mx-auto bg-gray-100 rounded-3xl p-8 shadow-md">
+      <div className="max-w-7xl mx-auto bg-gray-100 rounded-3xl p-8 shadow-md">
         <motion.h2
           className="text-center text-2xl md:text-5xl font-bold mb-8"
           initial={{ opacity: 0, y: -50 }}

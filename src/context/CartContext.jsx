@@ -1,12 +1,11 @@
-// src/context/CartContext.js
 import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [customer, setCustomer] = useState(null); // ✅ customer info
-  const [payment, setPayment] = useState(null); // ✅ payment method
+  const [customer, setCustomer] = useState(null);
+  const [payment, setPayment] = useState(null);
 
   // 🛒 Add item to cart
   const addToCart = (product) => {

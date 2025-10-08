@@ -26,7 +26,7 @@ const testimonials = [
   {
     name: "Emma W.",
     review:
-      "The quality is amazing! I got compliments on my outfit the first time I wore it. Definitely shopping here again. I'm thrilled to have stumbled upon Shop.co.",
+      "The quality is amazing! I got compliments on my outfit the first time I wore it. Definitely shopping here again. I'm thrilled to have stumbled upon Shop.co.first time I wore it. Definitely shopping here again. ",
   },
 ];
 
@@ -37,7 +37,7 @@ const fadeUp = {
 
 const Testimonials = () => {
   return (
-    <section className="bg-white py-32 px-4">
+    <section className="bg-[#FFFFFF] py-32 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={fadeUp}
@@ -46,15 +46,15 @@ const Testimonials = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="flex justify-between items-center mb-8"
         >
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
             OUR HAPPY CUSTOMERS
           </h2>
           <div className="flex space-x-3">
-            <button className="testimonial-prev cursor-pointer bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300 transition">
-              <HiChevronLeft className="text-2xl" />
+            <button className="testimonial-prev cursor-pointer bg-[#E0E0E0] p-2 rounded-full shadow hover:bg-[#D4AF37] transition">
+              <HiChevronLeft className="text-2xl text-[#000000]" />
             </button>
-            <button className="testimonial-next cursor-pointer bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300 transition">
-              <HiChevronRight className="text-2xl" />
+            <button className="testimonial-next cursor-pointer bg-[#E0E0E0] p-2 rounded-full shadow hover:bg-[#D4AF37] transition">
+              <HiChevronRight className="text-2xl text-[#000000]" />
             </button>
           </div>
         </motion.div>
@@ -78,9 +78,9 @@ const Testimonials = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="bg-white rounded-2xl shadow-md border p-6 h-full"
+                className="bg-[#FFFFFF] rounded-2xl shadow-md border border-[#E0E0E0] p-6 h-full"
               >
-                <div className="flex text-yellow-400 mb-3">
+                <div className="flex text-[#D4AF37] mb-3">
                   {Array(5)
                     .fill()
                     .map((_, i) => (
@@ -88,10 +88,12 @@ const Testimonials = () => {
                     ))}
                 </div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="font-bold text-lg">{t.name}</span>
-                  <FaCheckCircle className="text-green-500" />
+                  <span className="font-bold text-lg text-[#1A1A1A]">
+                    {t.name}
+                  </span>
+                  <FaCheckCircle className="text-[#D4AF37]" />
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-[#1A1A1A] text-sm leading-relaxed">
                   {t.review}
                 </p>
               </motion.div>

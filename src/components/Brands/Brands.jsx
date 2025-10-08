@@ -11,7 +11,7 @@ const Brands = () => {
       <div
         className="max-w-7xl mx-auto 
           grid grid-cols-3 gap-8 
-          md:flex md:justify-center md:items-center md:gap-12"
+          md:flex md:justify-center md:items-center md:gap-20"
       >
         <img
           src={versaceImg}

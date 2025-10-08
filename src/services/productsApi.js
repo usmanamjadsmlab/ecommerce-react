@@ -1,6 +1,6 @@
 const API_BASE = "https://fakestoreapiserver.reactbd.org";
 
-// Named export
+// ✅ API se products laane ka function
 export async function getAllProducts() {
   const res = await fetch(`${API_BASE}/api/products`);
   if (!res.ok) throw new Error("Failed to fetch products");
@@ -9,7 +9,7 @@ export async function getAllProducts() {
   return items;
 }
 
-// Named export
+// ✅ Product normalize karna
 export function normalizeProduct(p, index = 0) {
   const id = String(p._id ?? p.id ?? index);
 
@@ -21,7 +21,7 @@ export function normalizeProduct(p, index = 0) {
     p.img ||
     "";
 
-  // ✅ Multiple images (API se jo bhi aati hain wahi use karna)
+  // ✅ Multiple images
   let images = [];
   if (Array.isArray(p.images) && p.images.length > 0) {
     images = p.images;
@@ -46,10 +46,12 @@ export function normalizeProduct(p, index = 0) {
     id,
     title: p.title || p.name || "Untitled",
     img,
-    images, // 👈 ab sirf API ke real images
+    images, // 👈 multiple images
     price: `$${priceNum}`,
     rawPrice: priceNum,
     category,
+    rating: p.rating?.rate || p.rating || "N/A", // ✅ API rating
+    type: p.type || "N/A", // ✅ API type
     _source: p,
   };
 }
