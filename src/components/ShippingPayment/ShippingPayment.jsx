@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import visaImg from "../../assets/Footer/visa.png";
-import mastercardImg from "../../assets/Footer/mastercard.png";
-import paypalImg from "../../assets/Footer/paypal.png";
-import appleImg from "../../assets/Footer/apple.png";
-import gpayImg from "../../assets/Footer/gpay.png";
+import visaImg from "../../assets/footer/visa.png";
+import mastercardImg from "../../assets/footer/mastercard.png";
+import paypalImg from "../../assets/footer/paypal.png";
+import appleImg from "../../assets/footer/apple.png";
+import gpayImg from "../../assets/footer/gpay.png";
 
 const ShippingPayment = () => {
   const navigate = useNavigate();
