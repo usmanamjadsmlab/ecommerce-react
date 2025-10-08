@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import successImg from "../../assets/OrderSuccessfully/Group 34562.png";
+import successImg from "../../assets/ordersuccessfully/Group 34562.png";
 import { FaCheckCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
 
