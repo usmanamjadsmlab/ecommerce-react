@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import casualImg from "../../assets/dressStyle/casual.png";
+import CasualImg from "../../assets/dressStyle/Casual.png";
 import KidsImg from "../../assets/dressStyle/Kids.png";
-import partyImg from "../../assets/dressStyle/party.png";
+import PartyImg from "../../assets/dressStyle/Party.png";
 
 const DressStyle = () => {
   return (
@@ -30,7 +30,7 @@ const DressStyle = () => {
               className="relative rounded-xl overflow-hidden bg-white block shadow hover:scale-105 transition"
             >
               <img
-                src={casualImg}
+                src={CasualImg}
                 alt="Mens"
                 className="w-full h-56 object-cover"
               />
@@ -50,7 +50,7 @@ const DressStyle = () => {
               className="relative rounded-xl overflow-hidden bg-white block shadow hover:scale-105 transition"
             >
               <img
-                src={partyImg}
+                src={PartyImg}
                 alt="Womens"
                 className="w-full h-56 object-cover"
               />
