@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import CasualImg from "../../assets/DressStyle/Casual.png";
-import KidsImg from "../../assets/DressStyle/Kids.png";
-import PartyImg from "../../assets/DressStyle/Party.png";
+import CasualImg from "../../assets/dressstyle/Casual.png";
+import KidsImg from "../../assets/dressstyle/Kids.png";
+import PartyImg from "../../assets/dressstyle/Party.png";
 
 const DressStyle = () => {
   return (
