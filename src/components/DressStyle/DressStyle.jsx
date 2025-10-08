@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import casualImg from "../../assets/dressStyle/casual.png";
-import kidsImg from "../../assets/dressStyle/kids.png";
+import KidsImg from "../../assets/dressStyle/Kids.png";
 import partyImg from "../../assets/dressStyle/party.png";
 
 const DressStyle = () => {
@@ -70,7 +70,7 @@ const DressStyle = () => {
               className="relative rounded-xl overflow-hidden bg-white block shadow hover:scale-105 transition"
             >
               <img
-                src={kidsImg}
+                src={KidsImg}
                 alt="Kids"
                 className="w-full h-56 object-cover"
               />
